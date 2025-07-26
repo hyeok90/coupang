@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface CategoryCardProps {
   name: string;
@@ -9,11 +10,7 @@ interface CategoryCardProps {
 export default function CategoryCard({ name, href, imageSrc }: CategoryCardProps) {
   return (
     <Link href={href} className="group relative block bg-black rounded-xl overflow-hidden">
-      <img
-        alt={name}
-        src={imageSrc}
-        className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50"
-      />
+      <Image src={imageSrc} alt={name} fill style={{ objectFit: 'cover' }} className="absolute inset-0 h-full w-full opacity-75 transition-opacity group-hover:opacity-50 group-hover:scale-110 transition-transform duration-300" />
       <div className="relative p-8">
         <p className="text-sm font-medium uppercase tracking-widest text-pink-500">
           Luxury

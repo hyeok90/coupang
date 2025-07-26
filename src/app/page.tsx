@@ -1,4 +1,5 @@
 import CategoryCard from '@/components/CategoryCard';
+import Image from 'next/image';
 
 const categories = [
   {
@@ -34,10 +35,13 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative bg-black text-white">
         <div className="absolute inset-0">
-          <img 
+          <Image 
             src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" 
             alt="Background" 
-            className="w-full h-full object-cover opacity-40"
+            fill 
+            style={{ objectFit: 'cover' }} 
+            priority 
+            className="opacity-40"
           />
         </div>
         <div className="relative container mx-auto px-4 py-32 text-center">
