@@ -3,7 +3,11 @@ import Image from 'next/image';
 
 import { notFound } from 'next/navigation';
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
+interface ProductDetailPageProps {
+  params: { id: string };
+}
+
+export default function ProductDetailPage({ params }: ProductDetailPageProps) {
   const product = products.find(p => p.id === parseInt(params.id, 10));
 
   if (!product) {
