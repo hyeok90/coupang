@@ -2,6 +2,27 @@ import { products } from '@/data/products';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+type Props = {
+  params: { id: string };
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const product = products.find((p) => p.id.toString() === params.id);
+
+  if (!product) {
+    return {
+      title: 'Product Not Found',
+      description: 'The requested product could not be found.',
+    };
+  }
+
+  return {
+    title: `${product.name} - 명품 추천`,
+    description: product.description,
+  };
+}
 
 // Temporarily commenting out generateStaticParams to isolate the build error.
 // export async function generateStaticParams() {
