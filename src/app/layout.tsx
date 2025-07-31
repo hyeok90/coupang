@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -9,10 +9,7 @@ const geistSans = Geist({
   subsets: ['latin'],
 });
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-});
+
 
 export const metadata: Metadata = {
   title: '명추 - 럭셔리 선물 셀렉션',
@@ -27,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen bg-gray-50 text-gray-800`}
+        className={`${geistSans.variable} antialiased flex flex-col min-h-screen bg-gray-50 text-gray-800`}
       >
         <Header />
         <main className="flex-grow container mx-auto p-4 sm:p-6 md:p-8">
